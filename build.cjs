@@ -1,0 +1,1 @@
+const fs=require('node:fs'); const path=require('node:path');const root=__dirname;let s=fs.readFileSync(path.join(root,'template.html'),'utf8');for(let [mark,file] of [['/*CORE*/','core.js'],['/*UI*/','ui.js']])s=s.replace(mark,()=>fs.readFileSync(path.join(root,file),'utf8'));fs.writeFileSync(path.join(root,'index.html'),s);
